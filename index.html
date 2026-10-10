@@ -1,0 +1,252 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ECOACTION | Ali Azhaan & Aaron</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font:16px Arial,sans-serif;color:#effff2;background:linear-gradient(120deg,#06160d,#103d24,#06160d);background-size:300% 300%;animation:bg 12s infinite alternate}
+@keyframes bg{to{background-position:100% 50%}}
+header{text-align:center;padding:32px 15px;background:#06150de8;border-bottom:1px solid #43d879}
+header h1{font-size:42px;color:#6bff99;margin:0}
+header p{color:#c6e9ce}
+nav{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;padding:14px;position:sticky;top:0;background:#08190ef2;z-index:2}
+button,a.btn{border:0;border-radius:10px;padding:12px 16px;background:#67f58d;color:#082012;font-weight:bold;cursor:pointer;text-decoration:none}
+button:hover,a.btn:hover{filter:brightness(1.1)}
+main{width:min(1000px,92%);margin:25px auto}
+section,.box{background:#10271bea;border:1px solid #2c7043;border-radius:18px;padding:22px;margin-bottom:20px;box-shadow:0 10px 35px #0003}
+h2{color:#78ffa0;margin-top:0}
+input,select,textarea{width:100%;padding:12px;margin:7px 0 14px;border-radius:9px;border:1px solid #49835a;background:#07170d;color:white}
+label{font-size:14px;color:#d1f5d9;font-weight:bold}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+img.preview{max-width:100%;max-height:280px;display:block;border-radius:12px;margin:12px 0}
+.idea{padding:12px;margin:9px 0;border-radius:10px;background:#193d25;border-left:4px solid #69ff92}
+.hidden{display:none!important}
+footer{text-align:center;padding:28px;color:#c0ddc7}
+#certificate{background:#fffdf0;color:#173d26;border:9px double #278548;text-align:center;padding:35px;margin:20px 0;border-radius:6px}
+#certificate h2{font-size:32px;color:#176d36}
+#certificate .recipient{font-size:30px;font-family:Georgia,serif;border-bottom:2px solid #278548;display:inline-block;padding:10px}
+.small{font-size:13px;color:#c0ddc7}
+@media(max-width:650px){.grid{grid-template-columns:1fr}header h1{font-size:34px}}
+@media print{body{background:white;color:black}header,nav,footer,main>section:not(.printable),.no-print{display:none!important}main{width:100%;margin:0}#certificate{display:block!important;box-shadow:none;margin:0;min-height:90vh;page-break-inside:avoid}}
+</style>
+</head>
+<body>
+<header>
+  <h1>🌍 ECOACTION</h1>
+  <p>Small Actions. Greener Future.</p>
+  <p>NCSC Theme R5: Waste Management</p>
+  <p>Created by <b>Ali Azhaan & Aaron</b> | Sunbeam School, Mau</p>
+</header>
+
+<nav>
+  <a class="btn" href="#waste">♻️ Waste Idea Lab</a>
+  <a class="btn" href="#plant">🌱 Plant a Tree</a>
+  <a class="btn" href="#certificateArea">🏅 Certificate</a>
+  <button onclick="showAdmin()">Admin</button>
+</nav>
+
+<main>
+<section id="welcome">
+<h2>Welcome to ECOACTION!</h2>
+<p>Have waste material at home or school? Upload its photo, select its type and discover practical ways to reuse it. Record your tree-plantation activity and create a certificate.</p>
+<div class="grid">
+<div class="box"><h3>♻️ Waste to Wealth</h3><p>Find creative reuse ideas for everyday materials.</p></div>
+<div class="box"><h3>🌳 Green Mission</h3><p>Record plantation activities and celebrate your contribution.</p></div>
+</div>
+</section>
+
+<section id="waste">
+<h2>📸 Waste Photo Idea Lab</h2>
+<p>Upload a photo of your waste material and choose the closest category.</p>
+<label for="wastePhoto">Choose a photo</label>
+<input id="wastePhoto" type="file" accept="image/*">
+<img id="preview" class="preview hidden" alt="Your uploaded waste material">
+<label for="material">Material category</label>
+<select id="material">
+<option value="">-- Select material --</option>
+<option value="plastic">Plastic bottles and containers</option>
+<option value="paper">Paper and cardboard</option>
+<option value="glass">Glass jars and bottles</option>
+<option value="cloth">Old clothes and fabric</option>
+<option value="metal">Metal cans</option>
+<option value="tyre">Old tyres</option>
+<option value="ewaste">Electronic waste</option>
+<option value="organic">Leaves and organic waste</option>
+<option value="mixed">Mixed or other waste</option>
+</select>
+<button onclick="getIdeas()">✨ Generate Reuse Ideas</button>
+<div id="ideas" class="hidden" style="margin-top:20px"></div>
+<p class="small">Note: This version uses the category you select. It does not automatically identify objects in photos using AI.</p>
+</section>
+
+<section id="plant">
+<h2>🌱 Tree Plantation Mission</h2>
+<p>Record your plantation activity to create a printable participation certificate.</p>
+<form id="plantForm">
+<div class="grid">
+<div><label for="person">Participant name</label><input id="person" required placeholder="Enter your full name"></div>
+<div><label for="trees">Number of saplings planted</label><input id="trees" type="number" min="1" max="10000" required placeholder="e.g. 3"></div>
+<div><label for="treeType">Tree or plant type</label><input id="treeType" required placeholder="e.g. Neem"></div>
+<div><label for="plantDate">Plantation date</label><input id="plantDate" type="date" required></div>
+</div>
+<label for="location">Plantation location</label>
+<input id="location" required placeholder="e.g. School garden">
+<label for="promise">Your green commitment</label>
+<textarea id="promise" placeholder="How will you care for the plants?"></textarea>
+<button type="submit">🏅 Create My Certificate</button>
+</form>
+</section>
+
+<section id="certificateArea" class="hidden printable">
+<div id="certificate">
+<div style="font-size:48px">🌱</div>
+<h2>ECOACTION</h2>
+<h3>GREEN ACTION CERTIFICATE</h3>
+<p>This certificate recognises the participation of</p>
+<div class="recipient" id="certName">Participant Name</div>
+<p>for recording a tree-plantation activity in support of a greener future.</p>
+<h3 id="certTrees"></h3>
+<p id="certDetails"></p>
+<p id="certPromise"></p>
+<hr style="border:1px solid #278548">
+<p><b>Created by Ali Azhaan & Aaron</b></p>
+<p>Sunbeam School, Mau</p>
+<p style="font-size:12px">Self-recorded participation certificate. Not an official or independently verified award.</p>
+</div>
+<div class="no-print">
+<button onclick="window.print()">🖨️ Print / Save as PDF</button>
+<button onclick="document.getElementById('certificateArea').classList.add('hidden')">Close Certificate</button>
+</div>
+</section>
+
+<section id="adminArea" class="hidden">
+<h2>🔐 Admin Dashboard</h2>
+<p id="adminMessage">Demo dashboard: this single-file website does not have a secure server-side admin login.</p>
+<button onclick="document.getElementById('adminArea').classList.add('hidden')">Close</button>
+</section>
+
+<section>
+<h2>♻️ ECOACTION Pledge</h2>
+<p>Reduce waste. Reuse what you can. Recycle responsibly. Plant trees and care for them.</p>
+<p class="small">Always ask an adult for help with sharp objects, broken glass, chemicals or electronic waste.</p>
+</section>
+</main>
+
+<footer>
+<p>🌍 ECOACTION — Turn Waste Into Action</p>
+<p>Made by Ali Azhaan & Aaron | Sunbeam School, Mau</p>
+</footer>
+
+<script>
+const suggestions={
+plastic:[
+"Reuse a clean bottle as a planter for a small plant.",
+"Use a clean container to organise stationery.",
+"Make a drip-watering bottle for garden plants with adult help.",
+"Sort unusable plastic for an appropriate recycling collection."
+],
+paper:[
+"Use one-sided paper for rough work or make a notepad.",
+"Make gift tags, paper bags or craft decorations.",
+"Reuse clean cardboard to make storage dividers or school models.",
+"Recycle clean paper that cannot be reused."
+],
+glass:[
+"Reuse an intact, clean jar as a vase or storage container.",
+"Decorate a safe jar as a pencil holder.",
+"Never cut or break glass; ask an adult to handle damaged items.",
+"Recycle unusable glass through a suitable collection point."
+],
+cloth:[
+"Turn an old T-shirt into cleaning cloths.",
+"Make a reusable bag from suitable fabric.",
+"Use fabric scraps for supervised craft projects.",
+"Donate clean clothes that are still wearable."
+],
+metal:[
+"Use a clean can as a pen holder only after an adult checks sharp edges.",
+"Reuse safe metal containers for storage if suitable.",
+"Never handle rusty or sharp metal.",
+"Send unusable metal to a scrap-metal recycler."
+],
+tyre:[
+"Turn a suitable old tyre into an outdoor planter after cleaning.",
+"Use tyres in supervised garden projects.",
+"Prevent stagnant water collecting inside tyres.",
+"Ask a local tyre shop about proper recycling."
+],
+ewaste:[
+"Donate or reuse working electronics through a trusted programme.",
+"Keep broken electronics and batteries intact.",
+"Never dismantle batteries or circuit boards.",
+"Take electronic waste to an authorised e-waste collection centre."
+],
+organic:[
+"Compost suitable leaves and fruit or vegetable scraps.",
+"Use dry leaves as mulch around plants.",
+"Create leaf mould for garden soil.",
+"Keep plastic and unsuitable food waste out of simple compost."
+],
+mixed:[
+"Separate paper, plastic, glass, metal and organic waste.",
+"Clean and dry recyclable items when safe.",
+"Reuse suitable containers for storage.",
+"Never touch medical waste, chemicals, sharp objects or unknown materials."
+]
+};
+
+const photoInput=document.getElementById("wastePhoto");
+photoInput.addEventListener("change",()=>{
+ const file=photoInput.files[0],preview=document.getElementById("preview");
+ if(!file){preview.classList.add("hidden");return}
+ if(!file.type.startsWith("image/")||file.size>8*1024*1024){
+  photoInput.value="";alert("Choose an image under 8 MB.");return;
+ }
+ preview.src=URL.createObjectURL(file);
+ preview.classList.remove("hidden");
+});
+
+function getIdeas(){
+ const material=document.getElementById("material").value;
+ const file=photoInput.files[0];
+ const out=document.getElementById("ideas");
+ if(!file){alert("Please upload a waste photo first.");return}
+ if(!material){alert("Please choose the material category.");return}
+ out.innerHTML="<h3>💡 Your Reuse Ideas</h3>"+suggestions[material].map((idea,i)=>`<div class="idea"><b>Idea ${i+1}:</b> ${idea}</div>`).join("")+
+ "<p class='small'>Choose ideas that are safe and practical. Ask an adult before cutting or cleaning unfamiliar materials.</p>";
+ out.classList.remove("hidden");
+}
+
+document.getElementById("plantDate").value=new Date().toISOString().slice(0,10);
+document.getElementById("plantForm").addEventListener("submit",e=>{
+ e.preventDefault();
+ const name=document.getElementById("person").value.trim();
+ const trees=Number(document.getElementById("trees").value);
+ const type=document.getElementById("treeType").value.trim();
+ const date=document.getElementById("plantDate").value;
+ const location=document.getElementById("location").value.trim();
+ const promise=document.getElementById("promise").value.trim();
+ if(!name||!Number.isInteger(trees)||trees<1||!type||!date||!location){
+  alert("Please complete all required fields.");return;
+ }
+ document.getElementById("certName").textContent=name;
+ document.getElementById("certTrees").textContent="Saplings recorded: "+trees;
+ document.getElementById("certDetails").textContent=
+ "Plant type: "+type+" | Date: "+date+" | Location: "+location;
+ document.getElementById("certPromise").textContent=promise?
+ "Green commitment: "+promise:"";
+ document.getElementById("certificateArea").classList.remove("hidden");
+ document.getElementById("certificateArea").scrollIntoView({behavior:"smooth"});
+});
+
+function showAdmin(){
+ const area=document.getElementById("adminArea");
+ area.classList.remove("hidden");
+ area.scrollIntoView({behavior:"smooth"});
+}
+</script>
+</body>
+</html>
