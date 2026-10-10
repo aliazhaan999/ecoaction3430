@@ -3,250 +3,301 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ECOACTION | Ali Azhaan & Aaron</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#073b29">
+<title>ECOACTION | Make Earth Better</title>
 <style>
+:root{--green:#a8ffbe;--dark:#062a20;--panel:#0b3829;--line:#397b55}
 *{box-sizing:border-box}
-body{margin:0;font:16px Arial,sans-serif;color:#effff2;background:linear-gradient(120deg,#06160d,#103d24,#06160d);background-size:300% 300%;animation:bg 12s infinite alternate}
-@keyframes bg{to{background-position:100% 50%}}
-header{text-align:center;padding:32px 15px;background:#06150de8;border-bottom:1px solid #43d879}
-header h1{font-size:42px;color:#6bff99;margin:0}
-header p{color:#c6e9ce}
-nav{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;padding:14px;position:sticky;top:0;background:#08190ef2;z-index:2}
-button,a.btn{border:0;border-radius:10px;padding:12px 16px;background:#67f58d;color:#082012;font-weight:bold;cursor:pointer;text-decoration:none}
-button:hover,a.btn:hover{filter:brightness(1.1)}
-main{width:min(1000px,92%);margin:25px auto}
-section,.box{background:#10271bea;border:1px solid #2c7043;border-radius:18px;padding:22px;margin-bottom:20px;box-shadow:0 10px 35px #0003}
-h2{color:#78ffa0;margin-top:0}
-input,select,textarea{width:100%;padding:12px;margin:7px 0 14px;border-radius:9px;border:1px solid #49835a;background:#07170d;color:white}
-label{font-size:14px;color:#d1f5d9;font-weight:bold}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-img.preview{max-width:100%;max-height:280px;display:block;border-radius:12px;margin:12px 0}
-.idea{padding:12px;margin:9px 0;border-radius:10px;background:#193d25;border-left:4px solid #69ff92}
+body{margin:0;font-family:Arial,sans-serif;color:#f2fff5;background:linear-gradient(-45deg,#031e17,#075637,#117849,#062b20);background-size:400% 400%;animation:bg 16s ease infinite;min-height:100vh}
+@keyframes bg{50%{background-position:100% 50%}}
+header{text-align:center;padding:30px 14px;background:#031e17dd;border-bottom:1px solid #4d9868}
+.logo{font-size:42px}h1{font-size:clamp(29px,6vw,48px);letter-spacing:3px;color:var(--green);margin:8px 0}
+header p{margin:7px;color:#d7f9e1}
+nav{position:sticky;top:0;z-index:5;background:#05291ff2;display:flex;justify-content:center;gap:8px;flex-wrap:wrap;padding:12px}
+button,.btn{border:0;border-radius:10px;padding:11px 15px;font-weight:bold;cursor:pointer;background:var(--green);color:#073421}
+button:hover,.btn:hover{filter:brightness(1.12);transform:translateY(-1px)}
+main{max-width:1050px;margin:auto;padding:14px}
+section{scroll-margin-top:85px}
+.panel{background:#052c21ed;border:1px solid var(--line);border-radius:18px;padding:20px;margin:15px 0;box-shadow:0 12px 35px #00180f55}
+h2{color:var(--green);margin-top:0}
+h3{color:#d7ffe1}
+p{line-height:1.6}
+.hero{text-align:center;padding:32px 20px}
+.hero .tag{color:var(--green);font-weight:bold;letter-spacing:2px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:12px;margin:20px 0}
+.stat{background:#104d36;border:1px solid #397b55;padding:18px;border-radius:14px;text-align:center}
+.num{font-size:30px;font-weight:bold;color:var(--green)}
+input,select,textarea{display:block;width:100%;padding:12px;border-radius:9px;border:1px solid #a1d9af;background:#f3fff5;color:#123d28;margin:7px 0 15px;font:inherit}
+label{font-size:14px;font-weight:bold;color:#e0ffe7}
+button+button{margin-left:5px}
 .hidden{display:none!important}
-footer{text-align:center;padding:28px;color:#c0ddc7}
-#certificate{background:#fffdf0;color:#173d26;border:9px double #278548;text-align:center;padding:35px;margin:20px 0;border-radius:6px}
-#certificate h2{font-size:32px;color:#176d36}
-#certificate .recipient{font-size:30px;font-family:Georgia,serif;border-bottom:2px solid #278548;display:inline-block;padding:10px}
-.small{font-size:13px;color:#c0ddc7}
-@media(max-width:650px){.grid{grid-template-columns:1fr}header h1{font-size:34px}}
-@media print{body{background:white;color:black}header,nav,footer,main>section:not(.printable),.no-print{display:none!important}main{width:100%;margin:0}#certificate{display:block!important;box-shadow:none;margin:0;min-height:90vh;page-break-inside:avoid}}
+.small{font-size:12px;color:#c0e3ca}
+.notice{background:#143f2d;padding:12px;border-radius:9px;border-left:4px solid var(--green)}
+table{width:100%;border-collapse:collapse;min-width:440px}
+th,td{text-align:left;padding:12px;border-bottom:1px solid #397b55}
+.tablewrap{overflow-x:auto}
+.badge{display:inline-block;background:#1c6240;border-radius:30px;padding:6px 10px;margin:4px}
+footer{text-align:center;padding:25px;color:#d7f9e1}
+#preview{max-width:100%;max-height:250px;border-radius:12px;display:block;margin:10px 0}
+.certificate{background:white;color:#16462c;padding:30px;text-align:center;border:8px double #25834d;border-radius:5px;margin:15px 0}
+.certificate h2{color:#176638;font-size:28px}
+.certificate .certname{font-size:26px;font-weight:bold;border-bottom:1px solid #176638;display:inline-block;padding:10px}
+@media(max-width:600px){nav button{padding:9px;font-size:12px}.panel{padding:15px}.hero{padding:20px 5px}}
+@media print{body{background:white;color:#111;animation:none}header,nav,footer,.noprint,.panel:not(#certificatePanel){display:none!important}main{padding:0}.panel{border:0;box-shadow:none;background:white}.certificate{display:block!important;margin:0;min-height:90vh;padding:60px 20px}}
 </style>
 </head>
 <body>
 <header>
-  <h1>🌍 ECOACTION</h1>
-  <p>Small Actions. Greener Future.</p>
-  <p>NCSC Theme R5: Waste Management</p>
-  <p>Created by <b>Ali Azhaan & Aaron</b> | Sunbeam School, Mau</p>
+<div class="logo">🌍</div>
+<h1>ECOACTION</h1>
+<p>THINK GREEN. ACT CLEAN. CHANGE TOMORROW.</p>
+<p><b>Created by Ali Azhaan & Aaron</b><br>Sunbeam School, Mau</p>
 </header>
 
 <nav>
-  <a class="btn" href="#waste">♻️ Waste Idea Lab</a>
-  <a class="btn" href="#plant">🌱 Plant a Tree</a>
-  <a class="btn" href="#certificateArea">🏅 Certificate</a>
-  <button onclick="showAdmin()">Admin</button>
+<button onclick="go('home')">🏠 Home</button>
+<button onclick="go('waste')">♻️ Waste Lab</button>
+<button onclick="go('trees')">🌳 Plant Trees</button>
+<button onclick="go('board')">🏆 Leaderboard</button>
+<button onclick="go('certificate')">🎓 Certificate</button>
+<button onclick="go('admin')">🔐 Admin</button>
 </nav>
 
 <main>
-<section id="welcome">
-<h2>Welcome to ECOACTION!</h2>
-<p>Have waste material at home or school? Upload its photo, select its type and discover practical ways to reuse it. Record your tree-plantation activity and create a certificate.</p>
-<div class="grid">
-<div class="box"><h3>♻️ Waste to Wealth</h3><p>Find creative reuse ideas for everyday materials.</p></div>
-<div class="box"><h3>🌳 Green Mission</h3><p>Record plantation activities and celebrate your contribution.</p></div>
+<section id="home" class="panel hero">
+<div class="tag">YOUR PLANET. YOUR RESPONSIBILITY.</div>
+<h2 style="font-size:clamp(25px,5vw,38px)">Small Actions. Massive Impact.</h2>
+<p>Discover ways to reuse waste, record tree plantations and inspire your community to protect our planet.</p>
+<button onclick="go('waste')">Start a Waste Report ♻️</button>
+<button onclick="go('trees')">Record Tree Plantation 🌱</button>
+<div class="cards">
+<div class="stat"><div class="num" id="sReports">0</div>Waste Reports</div>
+<div class="stat"><div class="num" id="sTrees">0</div>Saplings Recorded</div>
+<div class="stat"><div class="num" id="sPoints">0</div>EcoPoints</div>
+<div class="stat"><div class="num" id="sPeople">0</div>Participants</div>
 </div>
+<h3>How ECOACTION works</h3>
+<div class="cards">
+<div class="stat">♻️<h3>Report</h3><p>Share a waste material and your reuse idea.</p></div>
+<div class="stat">🌳<h3>Restore</h3><p>Record genuine tree-planting activities.</p></div>
+<div class="stat">🏆<h3>Earn</h3><p>Collect points for completed activities.</p></div>
+</div>
+<p class="small">This is a student project prototype. Records and rankings are stored in this browser only.</p>
 </section>
 
-<section id="waste">
-<h2>📸 Waste Photo Idea Lab</h2>
-<p>Upload a photo of your waste material and choose the closest category.</p>
-<label for="wastePhoto">Choose a photo</label>
-<input id="wastePhoto" type="file" accept="image/*">
-<img id="preview" class="preview hidden" alt="Your uploaded waste material">
-<label for="material">Material category</label>
-<select id="material">
-<option value="">-- Select material --</option>
-<option value="plastic">Plastic bottles and containers</option>
-<option value="paper">Paper and cardboard</option>
-<option value="glass">Glass jars and bottles</option>
-<option value="cloth">Old clothes and fabric</option>
-<option value="metal">Metal cans</option>
-<option value="tyre">Old tyres</option>
-<option value="ewaste">Electronic waste</option>
-<option value="organic">Leaves and organic waste</option>
-<option value="mixed">Mixed or other waste</option>
+<section id="waste" class="panel hidden">
+<h2>♻️ Waste Reuse Lab</h2>
+<p>Upload a photo if you like, choose the material and describe your idea.</p>
+<form id="wForm">
+<label>Participant name</label>
+<input id="wName" maxlength="50" required placeholder="Your name">
+<label>Waste material</label>
+<select id="wType">
+<option>Plastic bottles</option><option>Paper and cardboard</option>
+<option>Glass jars</option><option>Old clothes and fabric</option>
+<option>Metal cans</option><option>Kitchen waste</option>
+<option>E-waste</option><option>Tyres</option><option>Mixed waste</option>
 </select>
-<button onclick="getIdeas()">✨ Generate Reuse Ideas</button>
-<div id="ideas" class="hidden" style="margin-top:20px"></div>
-<p class="small">Note: This version uses the category you select. It does not automatically identify objects in photos using AI.</p>
-</section>
-
-<section id="plant">
-<h2>🌱 Tree Plantation Mission</h2>
-<p>Record your plantation activity to create a printable participation certificate.</p>
-<form id="plantForm">
-<div class="grid">
-<div><label for="person">Participant name</label><input id="person" required placeholder="Enter your full name"></div>
-<div><label for="trees">Number of saplings planted</label><input id="trees" type="number" min="1" max="10000" required placeholder="e.g. 3"></div>
-<div><label for="treeType">Tree or plant type</label><input id="treeType" required placeholder="e.g. Neem"></div>
-<div><label for="plantDate">Plantation date</label><input id="plantDate" type="date" required></div>
-</div>
-<label for="location">Plantation location</label>
-<input id="location" required placeholder="e.g. School garden">
-<label for="promise">Your green commitment</label>
-<textarea id="promise" placeholder="How will you care for the plants?"></textarea>
-<button type="submit">🏅 Create My Certificate</button>
+<label>Upload waste photo (optional)</label>
+<input id="wPhoto" type="file" accept="image/*">
+<img id="preview" class="hidden" alt="Selected waste photo preview">
+<label>Your reuse idea</label>
+<textarea id="wIdea" maxlength="500" required placeholder="What can be made or reused from this material?"></textarea>
+<div id="ideas" class="notice">Choose a material to see reuse suggestions.</div>
+<button type="submit">Submit Waste Report · +10 points</button>
 </form>
 </section>
 
-<section id="certificateArea" class="hidden printable">
-<div id="certificate">
-<div style="font-size:48px">🌱</div>
-<h2>ECOACTION</h2>
-<h3>GREEN ACTION CERTIFICATE</h3>
-<p>This certificate recognises the participation of</p>
-<div class="recipient" id="certName">Participant Name</div>
-<p>for recording a tree-plantation activity in support of a greener future.</p>
-<h3 id="certTrees"></h3>
-<p id="certDetails"></p>
-<p id="certPromise"></p>
-<hr style="border:1px solid #278548">
-<p><b>Created by Ali Azhaan & Aaron</b></p>
+<section id="trees" class="panel hidden">
+<h2>🌳 Green Planet Challenge</h2>
+<p>Record a plantation you have genuinely completed.</p>
+<form id="tForm">
+<label>Participant name</label><input id="tName" maxlength="50" required>
+<label>Number of saplings</label><input id="tCount" type="number" min="1" max="1000" required>
+<label>Tree species</label><input id="tSpecies" maxlength="80" required placeholder="Neem, mango, etc.">
+<label>Plantation location</label><input id="tLocation" maxlength="150" required placeholder="School garden, community park, etc.">
+<label>Plantation date</label><input id="tDate" type="date" required>
+<label>Reflection (optional)</label><textarea id="tReflection" maxlength="300" placeholder="How will you help care for these saplings?"></textarea>
+<button type="submit">Record Plantation · +15 points</button>
+</form>
+<p class="small">Points are awarded per submitted activity, not per sapling. Please submit honest records.</p>
+</section>
+
+<section id="board" class="panel hidden">
+<h2>🏆 ECOACTION Leaderboard</h2>
+<p>Top participants by points earned on this browser.</p>
+<div class="tablewrap"><table><thead><tr><th>Rank</th><th>Participant</th><th>EcoPoints</th><th>Activities</th></tr></thead><tbody id="boardRows"></tbody></table></div>
+<p class="small">Demo rankings are not shared across different devices or visitors.</p>
+</section>
+
+<section id="certificate" class="panel hidden">
+<h2>🎓 Participation Certificate</h2>
+<p>Generate a printable certificate for an ECOACTION activity. This is a project certificate, not an official school award.</p>
+<label>Participant name</label><input id="certName" maxlength="60" placeholder="Enter participant name">
+<label>Activity</label>
+<select id="certActivity"><option>Waste Reuse Challenge</option><option>Tree Plantation Challenge</option><option>Environmental Awareness</option></select>
+<button onclick="makeCert()">Generate Certificate</button>
+<div id="certificatePanel" class="hidden">
+<div class="certificate">
+<div style="font-size:48px">🌿</div>
+<p style="letter-spacing:4px">E C O A C T I O N</p>
+<h2>CERTIFICATE OF PARTICIPATION</h2>
+<p>This certificate is presented to</p>
+<div id="certOutput" class="certname"></div>
+<p>In recognition of participation in the</p>
+<h3 id="certActOutput" style="color:#176638"></h3>
+<p>and a commitment to a cleaner, greener future.</p>
+<p>Created by Ali Azhaan & Aaron</p>
 <p>Sunbeam School, Mau</p>
-<p style="font-size:12px">Self-recorded participation certificate. Not an official or independently verified award.</p>
+<p id="certDate"></p>
 </div>
-<div class="no-print">
-<button onclick="window.print()">🖨️ Print / Save as PDF</button>
-<button onclick="document.getElementById('certificateArea').classList.add('hidden')">Close Certificate</button>
+<button class="noprint" onclick="window.print()">🖨️ Print / Save as PDF</button>
 </div>
 </section>
 
-<section id="adminArea" class="hidden">
+<section id="admin" class="panel hidden">
 <h2>🔐 Admin Dashboard</h2>
-<p id="adminMessage">Demo dashboard: this single-file website does not have a secure server-side admin login.</p>
-<button onclick="document.getElementById('adminArea').classList.add('hidden')">Close</button>
-</section>
-
-<section>
-<h2>♻️ ECOACTION Pledge</h2>
-<p>Reduce waste. Reuse what you can. Recycle responsibly. Plant trees and care for them.</p>
-<p class="small">Always ask an adult for help with sharp objects, broken glass, chemicals or electronic waste.</p>
+<div id="loginBox">
+<p>Enter the demo administrator credentials.</p>
+<label>Username</label><input id="adminUser" autocomplete="username" placeholder="Username">
+<label>Password</label><input id="adminPass" type="password" autocomplete="current-password" placeholder="Password">
+<button onclick="login()">Login to Dashboard</button>
+<p id="loginMsg"></p>
+<p class="small">Demo login: username <b>admin</b> · password <b>sunbeam123</b></p>
+</div>
+<div id="adminContent" class="hidden">
+<h3>📊 Activity Overview</h3>
+<div class="cards">
+<div class="stat"><div class="num" id="aWaste">0</div>Waste Reports</div>
+<div class="stat"><div class="num" id="aTrees">0</div>Plantation Activities</div>
+<div class="stat"><div class="num" id="aPeople">0</div>Participants</div>
+<div class="stat"><div class="num" id="aPoints">0</div>Total Points</div>
+</div>
+<h3>Waste submissions</h3><div id="wRecords"></div>
+<h3>Plantation submissions</h3><div id="tRecords"></div>
+<button onclick="exportData()">📥 Export Records</button>
+<button onclick="logout()">Logout</button>
+<button onclick="resetData()">Reset All Demo Data</button>
+</div>
+<p class="small">Security notice: this static demo login is not secure. Do not use it to protect confidential data.</p>
 </section>
 </main>
 
-<footer>
-<p>🌍 ECOACTION — Turn Waste Into Action</p>
-<p>Made by Ali Azhaan & Aaron | Sunbeam School, Mau</p>
-</footer>
+<footer>🌍 ECOACTION · Made by Ali Azhaan & Aaron · Sunbeam School, Mau<br>Reuse more. Waste less. Grow greener.</footer>
 
 <script>
+const DBKEY="ecoaction3430_v3";
 const suggestions={
-plastic:[
-"Reuse a clean bottle as a planter for a small plant.",
-"Use a clean container to organise stationery.",
-"Make a drip-watering bottle for garden plants with adult help.",
-"Sort unusable plastic for an appropriate recycling collection."
-],
-paper:[
-"Use one-sided paper for rough work or make a notepad.",
-"Make gift tags, paper bags or craft decorations.",
-"Reuse clean cardboard to make storage dividers or school models.",
-"Recycle clean paper that cannot be reused."
-],
-glass:[
-"Reuse an intact, clean jar as a vase or storage container.",
-"Decorate a safe jar as a pencil holder.",
-"Never cut or break glass; ask an adult to handle damaged items.",
-"Recycle unusable glass through a suitable collection point."
-],
-cloth:[
-"Turn an old T-shirt into cleaning cloths.",
-"Make a reusable bag from suitable fabric.",
-"Use fabric scraps for supervised craft projects.",
-"Donate clean clothes that are still wearable."
-],
-metal:[
-"Use a clean can as a pen holder only after an adult checks sharp edges.",
-"Reuse safe metal containers for storage if suitable.",
-"Never handle rusty or sharp metal.",
-"Send unusable metal to a scrap-metal recycler."
-],
-tyre:[
-"Turn a suitable old tyre into an outdoor planter after cleaning.",
-"Use tyres in supervised garden projects.",
-"Prevent stagnant water collecting inside tyres.",
-"Ask a local tyre shop about proper recycling."
-],
-ewaste:[
-"Donate or reuse working electronics through a trusted programme.",
-"Keep broken electronics and batteries intact.",
-"Never dismantle batteries or circuit boards.",
-"Take electronic waste to an authorised e-waste collection centre."
-],
-organic:[
-"Compost suitable leaves and fruit or vegetable scraps.",
-"Use dry leaves as mulch around plants.",
-"Create leaf mould for garden soil.",
-"Keep plastic and unsuitable food waste out of simple compost."
-],
-mixed:[
-"Separate paper, plastic, glass, metal and organic waste.",
-"Clean and dry recyclable items when safe.",
-"Reuse suitable containers for storage.",
-"Never touch medical waste, chemicals, sharp objects or unknown materials."
-]
+"Plastic bottles":"Reuse as a planter, watering bottle or craft material. Clean first and avoid heat exposure.",
+"Paper and cardboard":"Reuse as rough-draft paper, gift wrapping, storage organisers or paper-mache material.",
+"Glass jars":"Reuse as storage containers or planters after careful cleaning. Ask an adult to handle chipped glass.",
+"Old clothes and fabric":"Turn into cleaning cloths, patchwork crafts, reusable bags or textile donations.",
+"Metal cans":"Reuse as a pen holder or craft container only after sharp edges are made safe by an adult.",
+"Kitchen waste":"Compost suitable fruit and vegetable scraps where safe and practical.",
+"E-waste":"Keep separate and give to an authorised e-waste collection or recycling centre. Do not dismantle.",
+"Tyres":"Send to an appropriate reuse or recycling facility; avoid water collecting inside old tyres.",
+"Mixed waste":"Separate recyclables, compostable materials and residual waste according to local collection rules."
 };
-
-const photoInput=document.getElementById("wastePhoto");
-photoInput.addEventListener("change",()=>{
- const file=photoInput.files[0],preview=document.getElementById("preview");
- if(!file){preview.classList.add("hidden");return}
- if(!file.type.startsWith("image/")||file.size>8*1024*1024){
-  photoInput.value="";alert("Choose an image under 8 MB.");return;
- }
- preview.src=URL.createObjectURL(file);
- preview.classList.remove("hidden");
-});
-
-function getIdeas(){
- const material=document.getElementById("material").value;
- const file=photoInput.files[0];
- const out=document.getElementById("ideas");
- if(!file){alert("Please upload a waste photo first.");return}
- if(!material){alert("Please choose the material category.");return}
- out.innerHTML="<h3>💡 Your Reuse Ideas</h3>"+suggestions[material].map((idea,i)=>`<div class="idea"><b>Idea ${i+1}:</b> ${idea}</div>`).join("")+
- "<p class='small'>Choose ideas that are safe and practical. Ask an adult before cutting or cleaning unfamiliar materials.</p>";
- out.classList.remove("hidden");
+function fresh(){return {waste:[],trees:[],users:{}}}
+function load(){
+ try{let d=JSON.parse(localStorage.getItem(DBKEY));if(d&&Array.isArray(d.waste)&&Array.isArray(d.trees)&&d.users)return d}catch(e){}
+ return fresh();
 }
-
-document.getElementById("plantDate").value=new Date().toISOString().slice(0,10);
-document.getElementById("plantForm").addEventListener("submit",e=>{
+let db=load();
+function persist(){try{localStorage.setItem(DBKEY,JSON.stringify(db))}catch(e){alert("Browser storage is full. Try removing large photos or exporting your records.")}renderAll()}
+function safe(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function go(id){
+ document.querySelectorAll("main>section").forEach(x=>x.classList.add("hidden"));
+ document.getElementById(id).classList.remove("hidden");
+ window.scrollTo({top:0,behavior:"smooth"});
+ if(id==="admin")renderAdmin();
+ if(id==="board")renderBoard();
+}
+function getUser(name){
+ name=name.trim();
+ if(!db.users[name])db.users[name]={points:0,activities:0};
+ return db.users[name];
+}
+document.getElementById("wType").addEventListener("change",()=>{
+ document.getElementById("ideas").textContent=suggestions[document.getElementById("wType").value]||"Think about safe reuse or recycling.";
+});
+document.getElementById("wPhoto").addEventListener("change",e=>{
+ const f=e.target.files[0],img=document.getElementById("preview");
+ if(!f){img.classList.add("hidden");return}
+ if(!f.type.startsWith("image/")){alert("Please select an image file.");e.target.value="";return}
+ if(f.size>4*1024*1024){alert("Choose an image under 4 MB. Photos are previewed, not uploaded to a server.");e.target.value="";img.classList.add("hidden");return}
+ img.src=URL.createObjectURL(f);img.classList.remove("hidden");
+});
+document.getElementById("wForm").addEventListener("submit",e=>{
  e.preventDefault();
- const name=document.getElementById("person").value.trim();
- const trees=Number(document.getElementById("trees").value);
- const type=document.getElementById("treeType").value.trim();
- const date=document.getElementById("plantDate").value;
- const location=document.getElementById("location").value.trim();
- const promise=document.getElementById("promise").value.trim();
- if(!name||!Number.isInteger(trees)||trees<1||!type||!date||!location){
-  alert("Please complete all required fields.");return;
- }
- document.getElementById("certName").textContent=name;
- document.getElementById("certTrees").textContent="Saplings recorded: "+trees;
- document.getElementById("certDetails").textContent=
- "Plant type: "+type+" | Date: "+date+" | Location: "+location;
- document.getElementById("certPromise").textContent=promise?
- "Green commitment: "+promise:"";
- document.getElementById("certificateArea").classList.remove("hidden");
- document.getElementById("certificateArea").scrollIntoView({behavior:"smooth"});
+ const name=document.getElementById("wName").value.trim();
+ const idea=document.getElementById("wIdea").value.trim();
+ if(!name||!idea)return;
+ const u=getUser(name);u.points+=10;u.activities++;
+ db.waste.push({name,type:document.getElementById("wType").value,idea,date:new Date().toLocaleString()});
+ persist();e.target.reset();document.getElementById("preview").classList.add("hidden");
+ alert("Waste report recorded! +10 EcoPoints 🌱");
+ go("board");
 });
-
-function showAdmin(){
- const area=document.getElementById("adminArea");
- area.classList.remove("hidden");
- area.scrollIntoView({behavior:"smooth"});
+document.getElementById("tForm").addEventListener("submit",e=>{
+ e.preventDefault();
+ const name=document.getElementById("tName").value.trim(),count=Number(document.getElementById("tCount").value);
+ if(!name||!Number.isInteger(count)||count<1||count>1000){alert("Please check your name and sapling count.");return}
+ const u=getUser(name);u.points+=15;u.activities++;
+ db.trees.push({name,count,species:document.getElementById("tSpecies").value.trim(),location:document.getElementById("tLocation").value.trim(),date:document.getElementById("tDate").value,reflection:document.getElementById("tReflection").value.trim()});
+ persist();e.target.reset();
+ alert("Plantation record saved! +15 EcoPoints 🌳");
+ go("board");
+});
+function renderBoard(){
+ const entries=Object.entries(db.users).sort((a,b)=>b[1].points-a[1].points||a[0].localeCompare(b[0]));
+ document.getElementById("boardRows").innerHTML=entries.length?entries.map(([n,u],i)=>`<tr><td>${["🥇","🥈","🥉"][i]||i+1}</td><td>${safe(n)}</td><td>${u.points}</td><td>${u.activities}</td></tr>`).join(""):'<tr><td colspan="4">No participants yet. Be the first!</td></tr>';
 }
+function renderAll(){
+ document.getElementById("sReports").textContent=db.waste.length;
+ document.getElementById("sTrees").textContent=db.trees.reduce((s,t)=>s+t.count,0);
+ document.getElementById("sPoints").textContent=Object.values(db.users).reduce((s,u)=>s+u.points,0);
+ document.getElementById("sPeople").textContent=Object.keys(db.users).length;
+ renderBoard();renderAdmin();
+}
+function login(){
+ if(document.getElementById("adminUser").value==="admin"&&document.getElementById("adminPass").value==="sunbeam123"){
+ sessionStorage.setItem("ecoaction3430_admin","yes");
+ document.getElementById("loginMsg").textContent="";
+ renderAdmin();
+ }else document.getElementById("loginMsg").textContent="Login failed. Check the username and password.";
+}
+function logout(){sessionStorage.removeItem("ecoaction3430_admin");document.getElementById("adminPass").value="";renderAdmin()}
+function renderAdmin(){
+ const ok=sessionStorage.getItem("ecoaction3430_admin")==="yes";
+ document.getElementById("loginBox").classList.toggle("hidden",ok);
+ document.getElementById("adminContent").classList.toggle("hidden",!ok);
+ if(!ok)return;
+ document.getElementById("aWaste").textContent=db.waste.length;
+ document.getElementById("aTrees").textContent=db.trees.length;
+ document.getElementById("aPeople").textContent=Object.keys(db.users).length;
+ document.getElementById("aPoints").textContent=Object.values(db.users).reduce((s,u)=>s+u.points,0);
+ document.getElementById("wRecords").innerHTML=db.waste.length?db.waste.map((r,i)=>`<div class="notice"><b>${i+1}. ${safe(r.name)}</b> · ${safe(r.type)}<p>${safe(r.idea)}</p><span class="small">${safe(r.date)}</span></div>`).join(""):"No waste reports yet.";
+ document.getElementById("tRecords").innerHTML=db.trees.length?db.trees.map((r,i)=>`<div class="notice"><b>${i+1}. ${safe(r.name)}</b> · ${r.count} sapling(s)<p>${safe(r.species)} · ${safe(r.location)}</p><p>${safe(r.date)}</p><p>${safe(r.reflection)}</p></div>`).join(""):"No plantation records yet.";
+}
+function exportData(){
+ const blob=new Blob([JSON.stringify(db,null,2)],{type:"application/json"});
+ const url=URL.createObjectURL(blob),a=document.createElement("a");
+ a.href=url;a.download="ecoaction-records.json";a.click();URL.revokeObjectURL(url);
+}
+function resetData(){
+ if(confirm("Delete all saved demo records from this browser? Export them first if needed.")){db=fresh();persist();logout()}
+}
+function makeCert(){
+ const n=document.getElementById("certName").value.trim();
+ if(!n){alert("Please enter a participant name.");return}
+ document.getElementById("certOutput").textContent=n;
+ document.getElementById("certActOutput").textContent=document.getElementById("certActivity").value;
+ document.getElementById("certDate").textContent="Generated on "+new Date().toLocaleDateString();
+ document.getElementById("certificatePanel").classList.remove("hidden");
+}
+renderAll();
 </script>
 </body>
 </html>
